@@ -1,35 +1,28 @@
 import random
 
-def guess_the_number(target):
-    c = 10  # Number of chances
-    while c > 0:
+def guess_the_number(lower_limit, upper_limit):
+    target_number = random.randint(lower_limit, upper_limit)
+    chances = 10
+    
+    while chances > 0:
         guess = int(input("Guess the number: "))
         
-        if target > guess:
-            print("You guessed a smaller number. Guess a bigger one.")
-        elif target < guess:
-            print("You guessed a larger number. Guess a smaller one.")
+        if target_number == guess:
+            print("Congratulations! You guessed the correct number.")
+            break
+        elif target_number > guess:
+            print("You guessed too low.")
         else:
-            print("Congratulations! You guessed the correct number. You are the winner!")
-            break  # Exit the loop if the guess is correct
+            print("You guessed too high.")
         
-        c -= 1
+        chances -= 1
     
     else:
-        print(f"Oops! You ran out of chances. The correct number was {target}.")
+        print(f"Oops! You ran out of chances. The correct number was {target_number}.")
 
-# Generate a random number between upper_limit and lower limit for the user to guess
-print("Set the Upper Limit:  ",end="")
+# Input upper and lower limits
+upper_limit = int(input("Set the Upper Limit: "))
+lower_limit = int(input(f"Set the Lower Limit (must be less than {upper_limit}): "))
 
-upper_limit=int(input())
-
-print("Enter the number which is lower than upper limit but greater than \'0\'")
-
-print("Set the Lower Limit: ",end="")
-
-lower_limit=int(input())
-
-target_number = random.randint(lower_limit, upper_limit)
-
-# Call the function with the target number
-guess_the_number(target_number)
+# Call the function with the specified limits
+guess_the_number(lower_limit, upper_limit)
