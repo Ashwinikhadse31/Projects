@@ -20,9 +20,9 @@ def guess_the_number(lower_limit, upper_limit):
     else:
         print(f"Oops! You ran out of chances. The correct number was {target_number}.")
 
-# Input upper and lower limits
+
 upper_limit = int(input("Set the Upper Limit: "))
 lower_limit = int(input(f"Set the Lower Limit (must be less than {upper_limit}): "))
 
-# Call the function with the specified limits
+
 guess_the_number(lower_limit, upper_limit)
